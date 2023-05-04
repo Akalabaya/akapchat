@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<span id="full_mail" style="visibility: hidden;display:none;"></span>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Hi,&nbsp;<span id="username"></span></a>
+    <!-- Navbar brand yo -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+    <div class="collapse navbar-collapse" id="navbarTop">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link"  data-toggle="modal" data-target="#myModal" href="#edit">Edit Profile</a> </li>
+        <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="logout()">Logout</a> </li>
+       
+      </ul>
+    </div>
+  </nav>
+
+<!-- Navbar ends here...-->
+
+<!-- Modal for name change -->
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Profile Name</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <input type="text" id="uname" class="form-control" placeholder="Enter Profile Name"/>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" onclick="upDateName(document.getElementById('uname').value);" data-dismiss="modal" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--Modal ending here-->
+
+
+<!-- Coloumn for Requests and Friends -->
+
+</head>
+<body>
+   
+    <div style="text-align: center;" class="container-fluid">
+        <div class="row">
+            <div  id="friend" onclick="changeTab('friends')" class="col" style="background-color:transparent; "><h3 data-toggle="tooltip" title="View Friends" style="cursor: pointer;">Friends</h3></div>
+            <div id="req" onclick="changeTab('requests')" class="col bg-primary text-white"><h3 data-toggle="tooltip" title="View requests" style="cursor: pointer;">Requests</h3></div> 
+          </div>
+          <br>
+        <div style="display: inline;" id="firends">
+            <h1 id="type">Friends</h1>
+        <!-- Now table for displaying the friends list-->
+        <table id="friends-table" class="table table-bordered" >
+            <thread>
+                <tr>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thread>
+        </table>
+
+        </div>
+        <button class="btn btn-primary" data-toggle="collapse" data-target="#demo">Add Friends</button>
+
+        <div style="text-align: center;" id="demo" class="collapse"><br>
+            <center>
+            <form>
+                <div class="form-group">
+                    <span id="error"></span>
+                  <label for="email">User(Email) address:</label>
+                  <input id="to_mail" type="email" name="to_mail" class="form-control" placeholder="Enter email" id="email">
+                </div>
+                
+                <button onclick="sendReq(document.getElementById('to_mail'),this,document.getElementById('error'));" class="btn btn-dark">Add Friend</button>
+              </form>
+              </center>
+        </div>
+    </div>
+    <script src="script_dash.js"></SCRIPT>
+</body>
+</html>
+<!--Script-->
